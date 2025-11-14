@@ -1,168 +1,223 @@
-/* Estilos Generales */
-body {
-    font-family: Arial, sans-serif;
+/* --- Variables Globales y Reseteo --- */
+:root {
+    --color-rosa: #FEE7F0; /* El rosa pálido de tu imagen */
+    --color-texto: #333333;
+    --color-gris-boton: #6c757d;
+    --color-blanco: #FFFFFF;
+    --color-rosa-fuerte: #ff69b4; /* Para botones llamativos */
+    
+    /* Tipografía */
+    --font-titulo: 'Anton', sans-serif; /* Títulos de impacto */
+    --font-cuerpo: 'Poppins', sans-serif; /* Texto legible */
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f8f8f8;
-    color: #333;
+    scroll-behavior: smooth;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+body {
+    font-family: var(--font-cuerpo);
+    color: var(--color-texto);
+    background-color: #f9f9f9;
+    line-height: 1.6;
 }
 
-/* Header */
-header {
-    background-color: #fff;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+/* --- Header --- */
+.header {
+    background-color: var(--color-blanco);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-header .logo img {
-    height: 40px;
-    width: auto;
+.header-logo {
+    font-family: var(--font-titulo);
+    font-size: 1.5rem;
+    color: var(--color-texto);
 }
 
-header nav ul {
+.nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    gap: 1.5rem;
 }
 
-header nav ul li {
-    margin-left: 30px;
-}
-
-header nav ul li a {
+.nav ul li a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 5px 0;
+    color: var(--color-texto);
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-header nav ul li a:hover {
-    color: #ff69b4; /* Color rosa de la imagen */
+.nav ul li a:hover {
+    color: var(--color-rosa-fuerte);
 }
 
-/* Hero Section */
-.hero-section {
-    background-color: #ffe6f2; 
+/* --- Estilos Generales de Sección --- */
+.section {
+    padding: 4rem 5%;
+    max-width: 1100px;
+    margin: 2rem auto;
+    text-align: center;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.section h2 {
+    font-family: var(--font-titulo);
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- 1. Sección Heroe --- */
+.heroe {
+    background-color: var(--color-rosa);
+    padding: 4rem 5%;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 50px;
-    gap: 50px;
-    min-height: 400px;
 }
 
-.hero-content {
+.heroe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.heroe-content {
     text-align: left;
-    max-width: 500px;
 }
 
-.hero-content h1 {
-    font-size: 3.5em;
-    color: #333;
-    margin-bottom: 10px;
+.heroe-title {
+    font-family: var(--font-titulo);
+    font-size: 4.5rem; /* Grande, como en tu imagen */
+    color: var(--color-texto);
+    line-height: 1.1;
+    margin: 0;
 }
 
-.hero-content p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 30px;
+.heroe-main-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
 }
 
-.hero-section .call-to-action {
-    background-color: #6c757d; 
-    color: white;
-    padding: 15px 30px;
-    border: none;
+.heroe-slogan {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: var(--color-rosa-fuerte);
+    transform: rotate(-10deg);
+    font-size: 1.2rem;
+    /* Simula el "Fast & Easy" */
+}
+
+.heroe-products {
+    text-align: center;
+}
+
+.heroe-products h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.product-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.product-case {
+    max-width: 100px; /* Ajusta esto al tamaño de tus imágenes */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-case:hover {
+    transform: translateY(-8px);
+}
+
+.cta-button {
+    background-color: var(--color-gris-boton); /* Como en tu imagen */
+    color: var(--color-blanco);
+    font-family: var(--font-cuerpo);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
     border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
-.hero-section .call-to-action:hover {
+.cta-button:hover {
     background-color: #5a6268;
     transform: scale(1.05);
 }
 
-/* Secciones Generales */
-.about-section, .story-section, .contact-section, .products-section, .video-section {
-    padding: 60px 50px;
-    text-align: center;
-    background-color: #fff;
-    margin-bottom: 20px;
+/* --- 3. Sección Solución --- */
+.solucion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.solucion-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
 }
 
-.about-section h2, .story-section h2, .contact-section h2, .products-section h2, .video-section h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.about-section p, .story-section p, .contact-section p, .video-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-}
-
-/* Products Section */
-.products-section .product-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.product-gallery .product-item {
-    text-align: center;
-    width: 250px; 
-}
-
-.product-gallery .product-item img {
-    max-width: 100%;
+.solucion-icon {
+    max-width: 70px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+    border-radius: 50%;
 }
 
-.product-gallery .product-item img:hover {
-    transform: scale(1.05);
+.solucion-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-rosa-fuerte);
 }
 
-.product-gallery .product-item p {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555;
-}
-
-/* NUEVA SECCIÓN DE VIDEO */
+/* --- 4. Sección Demo (Video) --- */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Proporción 16:9 */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
     max-width: 800px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .video-wrapper iframe {
@@ -171,62 +226,92 @@ header nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
 }
 
-/* SECCIÓN DE CONTACTO MODIFICADA (Botón de Google Form) */
-.google-form-button {
+/* --- 5. Sección Características --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    max-width: 50px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+}
+
+.feature-card h4 {
+    font-family: var(--font-titulo);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- 6. Sección Feedback --- */
+.feedback-section {
+    background-color: var(--color-rosa); /* Llamativo */
+}
+
+.feedback-section h2 {
+    color: var(--color-texto);
+}
+
+.feedback-button {
     display: inline-block;
-    background-color: #ff69b4; /* Color rosa */
-    color: white;
-    padding: 18px 35px;
+    background-color: var(--color-rosa-fuerte);
+    color: var(--color-blanco);
+    font-family: var(--font-cuerpo);
+    font-weight: 600;
     text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-    
-    /* Animación de pulso */
-    animation: pulse 2s infinite;
+    padding: 1.2rem 3rem;
+    border-radius: 50px; /* Botón tipo "píldora" */
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite; /* Animación de pulso */
 }
 
-.google-form-button:hover {
+.feedback-button:hover {
     background-color: #e05e9e;
     transform: scale(1.05);
-    animation: none; /* Detener el pulso al pasar el mouse */
+    animation: none;
 }
 
-/* Animación de Pulso */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-    }
-    50% {
-        transform: scale(1.03);
-        box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
+/* --- Footer --- */
+.footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 2rem;
+    background-color: #333;
+    color: #aaa;
+    margin-top: 2rem;
 }
 
-/* NUEVA ANIMACIÓN DE SCROLL (FADE-IN) */
+/* --- Animación de Scroll --- */
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -235,51 +320,46 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive Design (Básico) */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    header nav ul {
-        margin-top: 15px;
-    }
-
-    header nav ul li {
-        margin: 0 10px;
-    }
-
-    .hero-section {
-        flex-direction: column;
+/* --- Diseño Responsivo (Mobile-First) --- */
+@media (max-width: 900px) {
+    .heroe-grid {
+        grid-template-columns: 1fr; /* Apila las columnas */
         text-align: center;
-        padding: 60px 20px;
-        gap: 30px;
     }
-
-    .hero-content {
+    
+    .heroe-content {
         text-align: center;
     }
 
-    .hero-content h1 {
-        font-size: 2.5em;
+    .features-grid {
+        grid-template-columns: 1fr; /* Apila características */
     }
 
-    .hero-image img {
-        max-width: 80%;
+    .solucion-grid {
+        grid-template-columns: 1fr; /* Apila solución */
     }
+}
 
-    .about-section, .story-section, .contact-section, .products-section, .video-section {
-        padding: 40px 20px;
-    }
-
-    .products-section .product-gallery {
+@media (max-width: 600px) {
+    .header {
         flex-direction: column;
-        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .nav ul {
+        gap: 1rem;
+        font-size: 0.9rem;
     }
 
-    .product-gallery .product-item {
-        width: 80%;
+    .section h2 {
+        font-size: 2.2rem;
+    }
+
+    .heroe-title {
+        font-size: 3rem;
+    }
+    
+    .product-case {
+        max-width: 80px;
     }
 }
